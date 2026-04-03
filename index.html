@@ -33,5 +33,33 @@
 
     </main>
 
+    <script>
+    const voiceBtn = document.getElementById('voice-btn');
+    const searchInput = document.getElementById('search-input');
+
+    // Vérifie si le navigateur supporte la reconnaissance vocale
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'fr-FR';
+
+        // Quand on clique sur le micro
+        voiceBtn.onclick = () => {
+            recognition.start(); // Le navigateur demande l'accès au micro
+            voiceBtn.style.opacity = "0.5"; // Petit effet visuel
+        };
+
+        // Quand la voix est transformée en texte
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            searchInput.value = transcript; // Met le texte dans la barre
+            voiceBtn.style.opacity = "1";
+            document.querySelector('form').submit(); // Lance la recherche automatiquement !
+        };
+    } else {
+        alert("Désolé, votre navigateur ne supporte pas la recherche vocale.");
+    }
+</script>
 </body>
 </html>
