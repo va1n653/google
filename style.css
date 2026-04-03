@@ -57,10 +57,13 @@ main {
 }
 
 .voice-icon, .lens-icon {
-    width: 24px;
-    height: 24px;
+    width: 24px;      /* Largeur fixe */
+    height: 24px;     /* Hauteur fixe */
+    flex-shrink: 0;   /* EMPECHE L'ICONE D'ETRE MINCE/ECRASEE */
     cursor: pointer;
+    object-fit: contain; /* Garde les bonnes proportions de l'image */
 }
+
 
 /* LES BOUTONS */
 .buttons {
