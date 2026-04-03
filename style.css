@@ -1,4 +1,3 @@
-/* On remet tout à zéro */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,6 @@ body {
     font-family: arial, sans-serif;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -24,15 +22,12 @@ main {
     margin-bottom: 25px;
 }
 
-/* --- LA BARRE DE RECHERCHE (LE MOTEUR) --- */
-
+/* LE CONTENEUR DE LA BARRE */
 .search-container {
+    position: relative; /* TRÈS IMPORTANT */
     width: 90%;
     max-width: 584px;
-    margin: 0 auto 20px auto;
-    position: relative; /* Important pour placer les icônes par-dessus */
-    display: flex;
-    align-items: center;
+    margin: 0 auto;
 }
 
 .search-input {
@@ -40,25 +35,25 @@ main {
     height: 44px;
     border: 1px solid #dfe1e5;
     border-radius: 24px;
-    padding: 0 90px 0 20px; /* On laisse 90px de vide à droite pour les icônes */
+    padding: 0 90px 0 20px; /* Espace à droite pour les icônes */
     font-size: 16px;
     outline: none;
 }
 
-/* Effet d'ombre Google */
 .search-input:hover, .search-input:focus {
     box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-    border-color: rgba(223,225,229,0);
+    border-color: rgba(0,0,0,0);
 }
 
-/* --- LES ICÔNES À DROITE --- */
-
+/* LES ICÔNES DANS LA BARRE */
 .search-icons {
-    position: absolute; /* On les "colle" par rapport à la barre */
-    right: 15px; /* À 15 pixels du bord droit */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%); /* Centre verticalement les icônes */
     display: flex;
+    gap: 15px;
     align-items: center;
-    gap: 12px; /* Espace entre le micro et l'appareil photo */
 }
 
 .voice-icon, .lens-icon {
@@ -67,23 +62,23 @@ main {
     cursor: pointer;
 }
 
-/* --- LES BOUTONS --- */
+/* LES BOUTONS */
+.buttons {
+    margin-top: 25px;
+}
 
-.buttons button {
+button {
     background-color: #f8f9fa;
     border: 1px solid #f8f9fa;
     border-radius: 4px;
     color: #3c4043;
-    font-size: 14px;
-    margin: 11px 4px;
     padding: 0 16px;
     height: 36px;
+    margin: 5px;
     cursor: pointer;
 }
 
-.buttons button:hover {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    background-color: #f8f8f8;
-    border: 1px solid #c6c6c6;
-    color: #222;
+button:hover {
+    border: 1px solid #dadce0;
+    color: #202124;
 }
