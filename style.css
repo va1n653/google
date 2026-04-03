@@ -10,8 +10,8 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre verticalement */
-    align-items: center;    /* Centre horizontalement */
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -21,50 +21,68 @@ main {
 
 .logo {
     width: 272px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-/* La barre de recherche */
+/* --- LA BARRE DE RECHERCHE (LE MOTEUR) --- */
+
 .search-container {
-    margin-bottom: 20px;
+    width: 90%;
+    max-width: 584px;
+    margin: 0 auto 20px auto;
+    position: relative; /* Important pour placer les icônes par-dessus */
+    display: flex;
+    align-items: center;
 }
 
 .search-input {
-    width: 90%;
-    max-width: 584px; /* Taille exacte de la barre Google */
+    width: 100%;
     height: 44px;
     border: 1px solid #dfe1e5;
     border-radius: 24px;
-    padding: 0 20px;
+    padding: 0 90px 0 20px; /* On laisse 90px de vide à droite pour les icônes */
     font-size: 16px;
     outline: none;
 }
 
-/* Effet d'ombre quand on survole la barre */
+/* Effet d'ombre Google */
 .search-input:hover, .search-input:focus {
     box-shadow: 0 1px 6px rgba(32,33,36,0.28);
     border-color: rgba(223,225,229,0);
 }
 
-/* Les boutons */
+/* --- LES ICÔNES À DROITE --- */
+
+.search-icons {
+    position: absolute; /* On les "colle" par rapport à la barre */
+    right: 15px; /* À 15 pixels du bord droit */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espace entre le micro et l'appareil photo */
+}
+
+.voice-icon, .lens-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* --- LES BOUTONS --- */
+
 .buttons button {
     background-color: #f8f9fa;
     border: 1px solid #f8f9fa;
     border-radius: 4px;
     color: #3c4043;
-    font-family: arial, sans-serif;
     font-size: 14px;
     margin: 11px 4px;
     padding: 0 16px;
-    line-height: 34px;
     height: 36px;
-    min-width: 54px;
     cursor: pointer;
 }
 
 .buttons button:hover {
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
     background-color: #f8f8f8;
     border: 1px solid #c6c6c6;
     color: #222;
