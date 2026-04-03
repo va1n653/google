@@ -15,15 +15,18 @@
         <form action="https://www.google.com/search" method="GET">
             
             <div class="search-container">
-                <!-- On a ajouté name="q" ici -->
-                <input type="text" name="q" class="search-input" placeholder="Rechercher sur Google ou saisir une URL">
-            </div>
-
-            <div class="buttons">
-                <!-- On a ajouté type="submit" ici -->
-                <button type="submit">Recherche Google</button>
-                <button type="button">J'ai de la chance</button>
-            </div>
+    <div class="search-bar">
+        <input type="text" name="q" class="search-input" id="search-input" placeholder="Rechercher sur Google ou saisir une URL">
+        
+        <!-- Icône Recherche Vocale -->
+        <div class="search-icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Mic_Logo.svg" alt="Micro" class="voice-icon" id="voice-btn">
+            
+            <!-- Icône Google Lens -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Lens_2023_Icon.svg" alt="Lens" class="lens-icon">
+        </div>
+    </div>
+</div>
 
         </form>
         <!-- FIN DE LA PARTIE QUI A CHANGÉ -->
