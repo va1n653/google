@@ -9,21 +9,21 @@
 <body>
 
     <main>
+        <!-- Logo -->
         <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
         
         <form action="https://www.google.com/search" method="GET">
+            <!-- La barre de recherche -->
             <div class="search-container">
                 <input type="text" name="q" class="search-input" id="search-input" placeholder="Rechercher sur Google ou saisir une URL">
                 
-               <div class="search-icons">
-    <!-- Image du Micro -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Mic_Logo.svg" class="voice-icon" id="voice-btn" alt="Micro">
-    
-    <!-- Image de Google Lens (La vraie, la belle !) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Lens_2023_Icon.svg" class="lens-icon" alt="Lens">
+                <div class="search-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Mic_Logo.svg" class="voice-icon" id="voice-btn" alt="Micro">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Google_Lens_2023_Icon.svg" class="lens-icon" alt="Lens">
                 </div>
             </div>
 
+            <!-- Les boutons -->
             <div class="buttons">
                 <button type="submit">Recherche Google</button>
                 <button type="button">J'ai de la chance</button>
@@ -31,22 +31,32 @@
         </form>
     </main>
 
+    <!-- LE CERVEAU DU SITE (JAVASCRIPT) -->
     <script>
         const voiceBtn = document.getElementById('voice-btn');
         const searchInput = document.getElementById('search-input');
+        
+        // On vérifie si le micro peut fonctionner
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-        if (SpeechRecognition && voiceBtn) {
+        if (SpeechRecognition) {
             const recognition = new SpeechRecognition();
             recognition.lang = 'fr-FR';
+
             voiceBtn.onclick = () => {
                 recognition.start();
                 voiceBtn.style.opacity = "0.5";
             };
+
             recognition.onresult = (e) => {
                 searchInput.value = e.results[0][0].transcript;
                 voiceBtn.style.opacity = "1";
                 document.querySelector('form').submit();
+            };
+        } else {
+            // SI LE MICRO NE MARCHE PAS, ON AFFICHE LE MESSAGE
+            voiceBtn.onclick = () => {
+                alert("Désolé, la recherche vocale n'est pas disponible sur votre navigateur.");
             };
         }
     </script>
