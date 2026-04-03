@@ -7,20 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Logo de Google -->
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
 
-        <!-- Barre de recherche -->
-        <div class="search-box">
-            <input type="text" class="search-input">
-        </div>
+    <main>
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+        
+        <!-- C'EST CETTE PARTIE QUI A CHANGÉ (LE FORMULAIRE) -->
+        <form action="https://www.google.com/search" method="GET">
+            
+            <div class="search-container">
+                <!-- On a ajouté name="q" ici -->
+                <input type="text" name="q" class="search-input" placeholder="Rechercher sur Google ou saisir une URL">
+            </div>
 
-        <!-- Les boutons sous la barre -->
-        <div class="buttons">
-            <button>Recherche Google</button>
-            <button>J'ai de la chance</button>
-        </div>
-    </div>
+            <div class="buttons">
+                <!-- On a ajouté type="submit" ici -->
+                <button type="submit">Recherche Google</button>
+                <button type="button">J'ai de la chance</button>
+            </div>
+
+        </form>
+        <!-- FIN DE LA PARTIE QUI A CHANGÉ -->
+
+    </main>
+
 </body>
 </html>
